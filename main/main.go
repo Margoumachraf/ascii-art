@@ -13,7 +13,6 @@ func main() {
 	arr := os.Args[1:]
 
 	// str,_ := regexp.MustCompile(`--n=([^ ]+) "([^"]+)" ([^\s]+)`)
-	
 
 	nFlag := flag.String("output", "", "help message for flag output")
 
@@ -39,7 +38,7 @@ func main() {
 	}
 	var resulat string
 	for _, word := range split_backN {
-		resulat = art.PrintArt([]rune(word), artDraw)
+		resulat += art.PrintArt(word, artDraw)
 	}
 	art.Write(resulat, &nFlag)
 }

@@ -2,8 +2,8 @@ package art
 
 
 
-func PrintArt(s []rune, a map[int][]string) string {
-	if s == nil {
+func PrintArt(s string, a map[int][]string) string {
+	if s == "" {
 		return ""
 	}
 

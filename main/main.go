@@ -17,19 +17,31 @@ func main() {
 	nFlag := flag.String("output", "", "help message for flag output")
 
 	flag.Parse()
-	if len(arr) != 3 {
-		println("please entre one word ")
-		return
-	} else if len(arr[1]) == 0 {
-		return
+	// if len(arr) <= 3 {
+	// 	println("please entre one word ")
+	// 	return
+	// } else if len(arr[1]) == 0 {
+	// 	return
+	// }
+	split_backN := []string{}
+	file:= ""
+	if len(arr) == 1 {
+		art.Check(arr[0])
+		split_backN = strings.Split(arr[0], "\\n")
+		file="standard"
+	} else if len(arr) == 3 {
+		art.Check(arr[1])
+		split_backN = strings.Split(arr[1], "\\n")
+		file=arr[2]
+	} else {
+		fmt.Println("sir t9Awad")
 	}
-	art.Check(arr[1])
-	artDraw, err := art.Art("standard")
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	split_backN := strings.Split(arr[1], "\\n")
+	// var artDraw map[int][]string
+	// if len(arr) == 1 {
+	artDraw,_:= art.Art(file)
+	// }
+
+
 	if art.Back(split_backN) {
 		for i := 0; i < len(split_backN)-1; i++ {
 			fmt.Println()
@@ -40,5 +52,10 @@ func main() {
 	for _, word := range split_backN {
 		resulat += art.PrintArt(word, artDraw)
 	}
-	art.Write(resulat, &nFlag)
+	if len(arr) == 1 {
+		fmt.Println(resulat)
+	} else if len(arr) == 3 {
+		art.Write(resulat, &nFlag)
+	}
+	
 }

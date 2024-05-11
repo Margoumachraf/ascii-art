@@ -7,7 +7,8 @@ import (
 )
 
 func Art(s string) (map[int][]string, error) {
-	file, err := os.Open("../.draw/" + s + ".txt")
+	file, err := os.Open("../.draw/" + s )
+	  
 	artAlpha := make(map[int][]string)
 	if err != nil {
 		return artAlpha, fmt.Errorf("this art don't exit")
